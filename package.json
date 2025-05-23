@@ -1,5 +1,5 @@
 {
-  "name": "llm-json-parser",
+  "name": "llm-json-validator",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,9 +10,9 @@
   "author": "Atharv Lingayat",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atharv2608/llm-json-parser"
+    "url": "https://github.com/atharv2608/llm-json-validator"
   },
-  "homepage": "https://github.com/atharv2608/llm-json-parser",
+  "homepage": "https://github.com/atharv2608/llm-json-validator",
   "license": "MIT",
   "description": "",
   "devDependencies": {

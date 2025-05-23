@@ -1,23 +1,23 @@
-# LLM JSON PARSER
+# LLM JSON VALIDATOR
 
 A lightweight TypeScript utility library for handling incomplete JSON data from Large Language Model outputs.
 
 ## Installation
 
 ```bash
-npm install lllm-json-parser
+npm install llm-json-validator
 # or
-yarn add lllm-json-parser
+yarn add llm-json-validator
 # or
-pnpm add lllm-json-parser
+pnpm add llm-json-validator
 ```
 
 ## Usage
 
-LLM JSON PARSER helps you handle incomplete JSON data that might be received from streaming LLM outputs.
+LLM JSON VALIDATOR helps you handle incomplete JSON data that might be received from streaming LLM outputs.
 
 ```typescript
-import { parseStreamingJson } from 'lllm-json-parser';
+import { parseStreamingJson } from 'llm-json-validator';
 
 // Example with incomplete JSON
 const incompleteJson = '{"name": "ChatGPT", "capabilities": ["text", "code", "images", {"advanced": [';
