@@ -1,11 +1,14 @@
 {
   "name": "llm-json-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "example": "node examples/usage-examples.js"
   },
   "author": "Atharv Lingayat",
   "repository": {
@@ -14,8 +17,42 @@
   },
   "homepage": "https://github.com/atharv2608/llm-json-validator",
   "license": "MIT",
-  "description": "",
+  "description": "A powerful TypeScript utility for handling incomplete JSON from LLM outputs with streaming support, quote balancing, and append-aware parsing.",
+  "keywords": [
+    "json",
+    "parser",
+    "streaming",
+    "llm",
+    "validation",
+    "typescript",
+    "ai",
+    "chatgpt",
+    "openai",
+    "claude"
+  ],
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": ["<rootDir>/tests"],
+    "testMatch": ["**/__tests__/**/*.test.js", "**/?(*.)+(spec|test).js"],
+    "collectCoverageFrom": [
+      "dist/**/*.js",
+      "!dist/**/*.d.ts",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["text", "lcov", "html"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 100,
+        "lines": 95,
+        "statements": 95
+      }
+    }
   }
 }
