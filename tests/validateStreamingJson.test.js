@@ -1,4 +1,4 @@
-const { validateStreamingJson } = require('../dist/index.js');
+const { validateStreamingJson } = require('../src/index.ts');
 
 describe('validateStreamingJson - Core Functionality', () => {
   

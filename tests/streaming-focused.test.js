@@ -1,4 +1,4 @@
-const { validateStreamingJson, createStreamingParser, StreamingJsonParser } = require('../dist/index.js');
+const { validateStreamingJson, createStreamingParser, StreamingJsonParser } = require('../src/index.ts');
 
 describe('Working Streaming Functionality Tests', () => {
   
