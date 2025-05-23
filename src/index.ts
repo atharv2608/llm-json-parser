@@ -4,7 +4,7 @@
  * @param input Potentially incomplete JSON string
  * @returns String with balanced JSON brackets
  */
-export const parseStreamingJson = (input: string): string => {
+export const validateStreamingJson = (input: string): string => {
     if (!input) return "";
   
     const stack: string[] = [];

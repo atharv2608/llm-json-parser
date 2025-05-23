@@ -17,11 +17,11 @@ pnpm add llm-json-validator
 LLM JSON VALIDATOR helps you handle incomplete JSON data that might be received from streaming LLM outputs.
 
 ```typescript
-import { parseStreamingJson } from 'llm-json-validator';
+import { validateStreamingJson } from 'llm-json-validator';
 
 // Example with incomplete JSON
 const incompleteJson = '{"name": "ChatGPT", "capabilities": ["text", "code", "images", {"advanced": [';
-const balancedJson = parseStreamingJson(incompleteJson);
+const balancedJson = validateStreamingJson(incompleteJson);
 // Result: '{"name": "ChatGPT", "capabilities": ["text", "code", "images", {"advanced": []}]}'
 
 // The balanced JSON can now be safely parsed
@@ -35,7 +35,7 @@ try {
 
 ## API
 
-### parseStreamingJson(input: string): string
+### validateStreamingJson(input: string): string
 
 Balances JSON brackets in a potentially incomplete JSON string by adding missing closing brackets.
 
