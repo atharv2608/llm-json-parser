@@ -250,8 +250,29 @@ export class StreamingJsonParser {
       }
     }
 
+    // Handle trailing commas by removing them before closing brackets
+    if (lastNonWhitespaceChar === ',' && stack.length > 0) {
+      // Remove the trailing comma
+      const beforeComma = result.substring(0, lastNonWhitespaceIndex);
+      const afterComma = result.substring(lastNonWhitespaceIndex + 1);
+      result = beforeComma + afterComma;
+      
+      // Update lastNonWhitespaceChar to reflect the character before the comma
+      let newLastChar = '';
+      let newLastIndex = -1;
+      for (let i = beforeComma.length - 1; i >= 0; i--) {
+        if (beforeComma[i].trim() !== '') {
+          newLastChar = beforeComma[i];
+          newLastIndex = i;
+          break;
+        }
+      }
+      lastNonWhitespaceChar = newLastChar;
+      lastNonWhitespaceIndex = newLastIndex;
+    }
+
     // Check if we need to add a value before closing brackets
-    const needsValue = lastNonWhitespaceChar === ':' || lastNonWhitespaceChar === '[' || lastNonWhitespaceChar === ',';
+    const needsValue = lastNonWhitespaceChar === ':' || lastNonWhitespaceChar === '[';
     
     if (needsValue && stack.length > 0) {
       // Add a placeholder value based on context
@@ -262,9 +283,9 @@ export class StreamingJsonParser {
           value: 'null',
           type: 'value'
         });
-      } else if (lastNonWhitespaceChar === '[' || lastNonWhitespaceChar === ',') {
-        // For arrays, we don't need to add anything, just close
       }
+      // Note: For arrays (lastNonWhitespaceChar === '['), we don't add anything
+      // The array can be empty: []
     }
 
     // Close remaining brackets
