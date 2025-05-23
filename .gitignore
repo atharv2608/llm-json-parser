@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache folder
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Environment variables
+.env
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
